@@ -24,13 +24,26 @@ app.set('view engine', 'ejs');
 
 //Routes
 
-app.use('/', require('./server/routes/routes'));
+app.use('/', require('./server/routes/index'));
+// app.use('/', require('./server/routes/dashboard'));
+
+
+
+
+
+
+//Last route
+
+app.get('*', function(req,res){
+
+    res.status(404).render('404');
+})
 
 
 
 //Listning to port
 
 app.listen(port, ()=>
-{ console.log('Status Running on ${port}')}
+{ (console.log('Status Running on ${port}'))}
 );
 
